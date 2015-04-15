@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: b4f187ad0c8b7e041bd95e663ad295ea
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - pointLight: {fileID: 10800000, guid: 5893e7b53efad9b4092e5cea5ed003f9, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
