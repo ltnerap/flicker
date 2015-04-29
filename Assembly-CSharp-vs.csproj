@@ -49,9 +49,12 @@
      <Compile Include="Assets\AgentScript.cs" />
      <Compile Include="Assets\Campfire Pack\Script\SwitchView.cs" />
      <Compile Include="Assets\cameraMouse.cs" />
+     <Compile Include="Assets\caughtPlayer.cs" />
      <Compile Include="Assets\electricityScript.cs" />
+     <Compile Include="Assets\enemyMovement.cs" />
      <Compile Include="Assets\fireScript.cs" />
      <Compile Include="Assets\playerControlsAndGUI.cs" />
+     <Compile Include="Assets\startGame.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">

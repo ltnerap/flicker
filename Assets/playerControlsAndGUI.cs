@@ -7,6 +7,10 @@ public class playerControlsAndGUI : MonoBehaviour {
 	public Material electric;
 	public Material fire;
 	public static bool switchSkin = false;
+	RaycastHit hit;
+	public static bool isPaused = false;
+	public GUIText quit;
+	public GUIText escape;
 
 
 	CharacterController cc;
@@ -15,10 +19,26 @@ public class playerControlsAndGUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cc = GetComponent<CharacterController> ();
+		quit.enabled = false;
+		escape.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if(isPaused){
+			Time.timeScale = 0;
+			quit.enabled = true;
+			escape.enabled = true;
+			if(Input.GetKeyDown(KeyCode.Q)){
+				Application.Quit();
+			}
+		}
+		else{
+			Time.timeScale = 1;
+			quit.enabled = false;
+			escape.enabled = false;
+		}
 
 		if (Input.GetKey ("a")) {
 			cc.Move(transform.right*Time.deltaTime*-speed);
@@ -36,7 +56,18 @@ public class playerControlsAndGUI : MonoBehaviour {
 			switchSkin = !switchSkin;
 		}
 		if (Input.GetMouseButton (0)) {
-			cc.Move (Vector3.up*Time.deltaTime*speed);
+			if(Physics.Raycast (gameObject.transform.position, 
+			                    gameObject.transform.up, out hit, 1000)){
+				cc.Move (Vector3.up*Time.deltaTime*speed);
+			}
+			else{
+				if(gameObject.transform.position.y < 7){
+					cc.Move(Vector3.up*Time.deltaTime*speed);
+				}
+			}
+		}
+		if(Input.GetKeyDown(KeyCode.Escape)){
+			isPaused = !isPaused;
 		}
 		if (Input.GetMouseButton (1)) {
 			cc.Move (Vector3.down*Time.deltaTime*speed);

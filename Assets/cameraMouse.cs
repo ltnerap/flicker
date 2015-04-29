@@ -11,6 +11,8 @@ public class cameraMouse : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate(0f, Input.GetAxis("Mouse X")*2f, 0f);
+		if(!playerControlsAndGUI.isPaused){
+			transform.Rotate(0f, Input.GetAxis("Mouse X")*2f, 0f);
+		}
 	}
 }

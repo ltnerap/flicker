@@ -4,7 +4,9 @@ using System.Collections;
 public class electricityScript : MonoBehaviour {
 	public Light pointLight;
 	public bool isLit = false;
+	private AudioSource source;
 	void Start () {
+		source = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +25,8 @@ public class electricityScript : MonoBehaviour {
 			if(playerControlsAndGUI.switchSkin && !isLit){
 				spawnLight ();
 				isLit = true;
+				source.mute = false;
+				source.PlayOneShot(source.clip, 1f);
 			}
 		}
 	}
